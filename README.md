@@ -7,4 +7,4 @@ Repo for the [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-e
 ---
 
 
-[Module 1 Homework: Docker & Terraform](01-docker-terraform/README.md)
+[Module 1 Homework: Docker & Terraform](01-docker-terraform/homework.md)
