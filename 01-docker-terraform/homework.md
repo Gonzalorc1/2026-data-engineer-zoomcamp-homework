@@ -179,7 +179,7 @@ WITH pick_up_zone_cte AS (
 )
 SELECT 
     dropoff_zone,
-    SUM(tip_amount) AS total_tip
+    MAX(tip_amount) AS total_tip
 FROM pick_up_zone_cte
 GROUP BY dropoff_zone
 ORDER BY total_tip DESC

@@ -8,3 +8,5 @@ Repo for the [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-e
 
 
 [Module 1 Homework: Docker & Terraform](01-docker-terraform/homework.md)
+
+[Module 2 Homework: Workflows with Kendra](02-workflow-orchestration/homework.md)

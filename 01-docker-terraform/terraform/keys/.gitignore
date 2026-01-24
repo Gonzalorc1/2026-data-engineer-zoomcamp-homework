@@ -1,0 +1,6 @@
+# Ignorar todos los archivos de credenciales
+*.json
+*.key
+*.pem
+*.p12
+*.pfx
