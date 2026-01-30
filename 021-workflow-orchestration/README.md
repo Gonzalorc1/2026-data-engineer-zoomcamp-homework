@@ -1,6 +1,9 @@
-This directory contains the workflow implementation using Apache Airflow as the primary orchestrator. These DAGs (Directed Acyclic Graphs) serve as the Python-based equivalents to Kestra's YAML flows, providing a more programmatic approach to data pipeline management.📋 Project StructurePlaintext021-workflow-orchestration/
 
 
+This directory contains the workflow implementation using Apache Airflow as the primary orchestrator. These DAGs (Directed Acyclic Graphs) serve as the Python-based equivalents to Kestra's YAML flows, providing a more programmatic approach to data pipeline management.
+
+
+```
 ├── dags/                    # Airflow DAG definitions
 │   ├── 07_gcp_setup.py      # Initial GCP setup (Bucket & Dataset)
 │   ├── 08_gcp_taxi.py       # Manual taxi data processing
@@ -14,15 +17,15 @@ This directory contains the workflow implementation using Apache Airflow as the 
 ├── requirements.txt         # Python library dependencies
 ├── .env                     # Environment variables (create manually)
 └── README.md                # Project documentation
+```
 
  Initial Setup
  
- 1. Configure Environment Variables
+1. Configure Environment Variables
  
- Create a .env file in the project root to manage your environment-specific settings:
+Create a `.env` file in the project root to manage your environment-specific settings:
  
-
- 
+ ```bash
  # Airflow Config
 
 AIRFLOW_UID=50000
@@ -39,12 +42,15 @@ GCP_CREDENTIALS_FILE=my-creds.json
 _AIRFLOW_WWW_USER_USERNAME=airflow
 _AIRFLOW_WWW_USER_PASSWORD=airflow
 
-2. GCP Credentials
+```
+
+### 2. GCP Credentials
+
 Download your Service Account JSON key from the GCP Console.
 
-Place it in the gcp_keys/ folder.Name it according to your .env file (e.g., my-creds.json).
+Place it in the gcp_keys/ `folder.Name` it according to your `.env` file (e.g., my-creds.json).
 
-3. Initialize & StartBash
+### 3. Initialize & StartBash
 
 # Set UID for permissions
 export AIRFLOW_UID=$(id -u)
@@ -60,5 +66,3 @@ docker-compose up -d
 1. 07_gcp_setupGoal: Infrastructure as Code (simplified).Tasks: Creates the required GCS Bucket and BigQuery Dataset.Execution: Run once before starting the data pipelines.
 2. 08_gcp_taxi (Manual)Goal: On-demand data ingestion from GitHub to BigQuery.Trigger: Manual with JSON configuration.JSON Example:JSON{ "taxi": "yellow", "year": "2021", "month": "01" }
 3. 09_gcp_taxi_scheduledGoal: Regular data updates.Schedule: * Green Taxi: 1st of every month at 09:00 AM.Yellow Taxi: 1st of every month at 10:00 AM.
-
-
